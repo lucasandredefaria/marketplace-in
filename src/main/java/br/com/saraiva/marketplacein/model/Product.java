@@ -10,8 +10,6 @@ import java.io.Serializable;
 @Data @ToString
 public class Product implements Serializable {
 
-    private Long id;
-
     @NotNull(message = "idLojista cannot be null.")
     private Long idLojista;
 

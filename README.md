@@ -15,7 +15,6 @@ Exposed Endpoints:
     -H 'Content-Type: application/json; charset=utf-8' \
     --data-binary @- << EOF
     {
-        "id": "15653",
         "idLojista": "12346",
         "nome": "nome do produto",
         "descricao": "descrição do produto",
@@ -79,6 +78,7 @@ Exposed Endpoints:
     {
         "idLojista": "12346",
         "skuLojista" : "value nome",
+        "skuSaraiva" : "value nome",
         "ean" : "value Descricao",
         "isbn" : "1235465465",
         "precoDe" : 49.90,

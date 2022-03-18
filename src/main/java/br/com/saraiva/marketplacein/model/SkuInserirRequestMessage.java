@@ -15,6 +15,8 @@ public class SkuInserirRequestMessage implements Serializable {
     @NotEmpty(message = "skuLojista cannot be empty.")
     private String skuLojista;
 
+    private String skuSaraiva;
+
     @NotEmpty(message = "EAN cannot be empty.")
     private String ean;
 
