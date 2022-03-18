@@ -1,15 +1,16 @@
 package br.com.saraiva.marketplacein.model;
 
 import lombok.Data;
-
+import lombok.ToString;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 
-@Data
-public class SkuInserirRequestMessage {
+@Data @ToString
+public class SkuInserirRequestMessage implements Serializable {
 
     @NotEmpty(message = "skuLojista cannot be empty.")
     private String skuLojista;

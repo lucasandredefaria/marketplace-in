@@ -1,14 +1,14 @@
 package br.com.saraiva.marketplacein.model;
 
 import lombok.Data;
-
+import lombok.ToString;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 
-@Data
-public class Product {
+@Data @ToString
+public class Product implements Serializable {
 
     private Long id;
 

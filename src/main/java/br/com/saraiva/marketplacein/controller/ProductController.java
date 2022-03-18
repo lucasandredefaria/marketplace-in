@@ -5,7 +5,7 @@ import br.com.saraiva.marketplacein.model.PriceProduct;
 import br.com.saraiva.marketplacein.model.Product;
 import br.com.saraiva.marketplacein.model.StockProduct;
 import br.com.saraiva.marketplacein.queue.RabbitMQSender;
-import br.com.saraiva.marketplacein.queue.RabbitMqConfigProduct;
+import br.com.saraiva.marketplacein.queue.RabbitMqConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +24,7 @@ public class ProductController {
     RabbitMQSender rabbitMQSender;
 
     @Autowired
-    private RabbitMqConfigProduct config;
+    private RabbitMqConfig config;
 
     @PostMapping()
     @ResponseStatus(HttpStatus.ACCEPTED)
@@ -34,11 +34,11 @@ public class ProductController {
             throw new ProductException(errors.getFieldError().getDefaultMessage(), HttpStatus.BAD_REQUEST);
 
 		try {
-            rabbitMQSender.send(config.ProductQueue().getName(), product.toString());
-			return ResponseEntity.status(HttpStatus.OK).body("PRODUTO INSERIDO" + "\n" + product +"\n");
+            rabbitMQSender.send(config.ProductQueue().getName(), product);
+			return ResponseEntity.status(HttpStatus.OK).body("Product sent successfully" + "\n" + product +"\n");
 		} catch (Exception e) {
 			e.printStackTrace();
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("FALHA AO CRIAR PRODUTO\n");
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Unable to send product, please try again!\n");
 		}
     }
 
@@ -50,7 +50,7 @@ public class ProductController {
             throw new ProductException(errors.getFieldError().getDefaultMessage(), HttpStatus.BAD_REQUEST);
 
         try {
-            rabbitMQSender.send(config.StockQueue().getName(), stockProduct.toString());
+            rabbitMQSender.send(config.StockQueue().getName(), stockProduct);
             return ResponseEntity.status(HttpStatus.OK).body("Stock update sent successfully! " + "\n" + stockProduct +"\n");
         } catch (Exception e) {
             e.printStackTrace();
@@ -66,7 +66,7 @@ public class ProductController {
             throw new ProductException(errors.getFieldError().getDefaultMessage(), HttpStatus.BAD_REQUEST);
 
         try {
-            rabbitMQSender.send(config.PriceQueue().getName(), priceProduct.toString());
+            rabbitMQSender.send(config.PriceQueue().getName(), priceProduct);
             return ResponseEntity.status(HttpStatus.OK).body("Price update sent successfully! " + "\n" + priceProduct +"\n");
         } catch (Exception e) {
             e.printStackTrace();

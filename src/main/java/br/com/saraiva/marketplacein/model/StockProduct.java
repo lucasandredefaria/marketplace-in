@@ -1,11 +1,12 @@
 package br.com.saraiva.marketplacein.model;
 
 import lombok.Data;
-
+import lombok.ToString;
 import javax.validation.constraints.*;
+import java.io.Serializable;
 
-@Data
-public class StockProduct {
+@Data @ToString
+public class StockProduct implements Serializable {
 
     @NotNull(message = "IdLojista cannot be empty.")
     private Long idLojista;
