@@ -23,6 +23,10 @@ public class SkuInserirRequestMessage implements Serializable {
     @NotEmpty(message = "ISBN cannot be empty.")
     private String isbn;
 
+    private String releaseDate;
+
+    private String title;
+
     @NotNull(message = "PrecoDe cannot be empty.")
     @DecimalMin(value = "0.0", inclusive = false, message = "PrecoDe must be greater than ZERO")
     private BigDecimal precoDe;

@@ -24,6 +24,8 @@ Exposed Endpoints:
             "skuLojista": "value nome",
             "ean": "value Descricao",
             "isbn": "1235465465",
+            "releaseDate": "2019-01-01T00:00:00",
+            "title": "title test",
             "precoDe": 49.90,
             "precoPor": 29.90,
             "estoque": 50,
