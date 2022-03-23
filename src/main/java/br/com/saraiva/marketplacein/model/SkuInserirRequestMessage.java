@@ -27,6 +27,7 @@ public class SkuInserirRequestMessage implements Serializable {
 
     private String title;
 
+
     @NotNull(message = "PrecoDe cannot be empty.")
     @DecimalMin(value = "0.0", inclusive = false, message = "PrecoDe must be greater than ZERO")
     private BigDecimal precoDe;
