@@ -10,9 +10,6 @@ import java.io.Serializable;
 @Data @ToString
 public class Product implements Serializable {
 
-    @NotNull(message = "idLojista cannot be null.")
-    private Long idLojista;
-
     @Size(max = 100, message = "Name must be maximum of 100 characters.")
     @NotBlank(message = "Name cannot be blank.")
     private String nome;

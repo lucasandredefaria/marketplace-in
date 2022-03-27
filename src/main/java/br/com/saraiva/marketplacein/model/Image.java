@@ -11,6 +11,8 @@ public class Image implements Serializable {
     @NotEmpty(message = "UrlInterna cannot be empty.")
     private String urlInterna;
 
+    private String name;
+
     private boolean capa;
 
 }

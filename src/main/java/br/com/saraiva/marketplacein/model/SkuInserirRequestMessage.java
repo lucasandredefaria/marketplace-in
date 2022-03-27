@@ -15,6 +15,9 @@ public class SkuInserirRequestMessage implements Serializable {
     @NotEmpty(message = "skuLojista cannot be empty.")
     private String skuLojista;
 
+    @NotNull(message = "idLojista cannot be null.")
+    private Long idLojista;
+
     private String skuSaraiva;
 
     @NotEmpty(message = "EAN cannot be empty.")
@@ -26,7 +29,6 @@ public class SkuInserirRequestMessage implements Serializable {
     private String releaseDate;
 
     private String title;
-
 
     @NotNull(message = "PrecoDe cannot be empty.")
     @DecimalMin(value = "0.0", inclusive = false, message = "PrecoDe must be greater than ZERO")
@@ -42,9 +44,13 @@ public class SkuInserirRequestMessage implements Serializable {
     @NotEmpty(message = "Tipo cannot be empty. Values accepted: New, Used or Refurbished.")
     private String tipo;
 
-    @DecimalMin(value = "0.0",inclusive = false, message = "Peso must be greater than ZERO")
-    @NotNull(message = "Peso cannot be empty.")
-    private Double peso;
+    private BigDecimal peso;
+
+    private BigDecimal altura;
+
+    private BigDecimal cumprimento;
+
+    private BigDecimal largura;
 
     @NotEmpty(message = "Status cannot be empty. Values accepted: Active, Inactive or Blocked.")
     private String status;
