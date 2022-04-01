@@ -35,7 +35,7 @@ public class ProductController {
 
 		try {
             rabbitMQSender.send(config.ProductQueue().getName(), product);
-			return ResponseEntity.status(HttpStatus.OK).body("Product sent successfully" + "\n" + product +"\n");
+			return ResponseEntity.status(HttpStatus.OK).body("Product sent for processing: " + "\n" + product.getNome() +"\n");
 		} catch (Exception e) {
 			e.printStackTrace();
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Unable to send product, please try again!\n");
